@@ -252,7 +252,7 @@ class Client
         $response = json_decode($response);
 
         if (isset($response->errors)) {
-            throw new \RuntimeException($response->errors);
+            throw new \RuntimeException(json_encode($response->errors));
         }
 
         return $response;
