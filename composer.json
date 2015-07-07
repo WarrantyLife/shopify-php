@@ -1,15 +1,21 @@
 {
-  "name": "offshoot/shopify-php",
+  "name": "warrantylife/shopify-php",
   "type": "library",
   "description": "Simple Shopify API client in PHP",
   "keywords": ["shopify","api"],
-  "homepage": "https://github.com/TeamOffshoot/shopify-php",
+  "homepage": "https://github.com/WarrantyLife/shopify-php",
   "license": "MIT",
   "authors": [
     {
       "name": "Chris Woodford",
       "email": "chris.woodford@gmail.com",
       "homepage": "http://chriswoodford.posthaven.com",
+      "role": "Developer"
+    },
+    {
+      "name": "Anthony Daws",
+      "email": "anthony@daws.ca",
+      "homepage": "http://daws.ca",
       "role": "Developer"
     },
     {

@@ -75,13 +75,13 @@ class CurlHttpClient extends HttpClientAdapter
 
     public function get($uri, array $params = array())
     {
-
         $uri .= '?' . http_build_query($params);
 
         $ch = $this->initCurlHandler($uri);
         return $this->makeRequest($ch);
 
     }
+
 
     public function post($uri, $params = null)
     {
@@ -96,6 +96,26 @@ class CurlHttpClient extends HttpClientAdapter
         if (!is_null($params)) {
             curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
         }
+
+        return $this->makeRequest($ch);
+
+    }
+
+    /**
+     * make a delete request to the given uri
+     * @param string $uri
+     * @param array|string $params
+     * @return mixed
+     */
+    public function delete($uri, array $params = array())
+    {
+        $uri .= '?' . http_build_query($params);
+
+        $ch = $this->initCurlHandler($uri);
+
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         return $this->makeRequest($ch);
 
