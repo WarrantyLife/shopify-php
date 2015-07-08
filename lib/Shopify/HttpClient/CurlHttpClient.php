@@ -82,7 +82,6 @@ class CurlHttpClient extends HttpClientAdapter
 
     }
 
-
     public function post($uri, $params = null)
     {
 
@@ -98,7 +97,26 @@ class CurlHttpClient extends HttpClientAdapter
         }
 
         return $this->makeRequest($ch);
+    }
 
+    public function put($uri, $params = null)
+    {
+
+        $ch = $this->initCurlHandler($uri);
+
+        if (!is_null($params) && !is_array($params)) {
+            $this->headers[] = 'Content-Type: application/json';
+        }
+
+        //curl_setopt($ch, CURLOPT_PUT, true);
+        //$params = http_build_query($params);
+
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Length: ' . strlen($params)));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+
+        return $this->makeRequest($ch);
     }
 
     /**
