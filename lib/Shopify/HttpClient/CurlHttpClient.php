@@ -127,7 +127,8 @@ class CurlHttpClient extends HttpClientAdapter
      */
     public function delete($uri, $params)
     {
-        $uri .= '?' . http_build_query($params);
+
+        //$uri .= '?' . http_build_query($params);
 
         $ch = $this->initCurlHandler($uri);
 
