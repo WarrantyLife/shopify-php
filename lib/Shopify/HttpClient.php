@@ -42,9 +42,9 @@ interface HttpClient
     /**
      * make a delete request to the given uri
      * @param string $uri
-     * @param array $params
+     * @param array|string $params
      * @return mixed
      */
-    public function delete($uri, array $params = array());
+    public function delete($uri, $params);
 
 }

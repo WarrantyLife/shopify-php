@@ -125,7 +125,7 @@ class CurlHttpClient extends HttpClientAdapter
      * @param array|string $params
      * @return mixed
      */
-    public function delete($uri, array $params = array())
+    public function delete($uri, $params)
     {
         $uri .= '?' . http_build_query($params);
 
